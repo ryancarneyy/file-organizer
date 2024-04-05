@@ -3,8 +3,11 @@ import time
 
 
 
+def get_child_dir(directory):
+    return [subdirectory for subdirectory in os.listdir(directory) if os.path.isdir(os.path.join(directory,subdirectory))]
 
-def clean_dir(directory, time):
+
+def clean_dir(directory):
     # Get the current time in seconds
     current_time = time.time()
 
@@ -25,7 +28,7 @@ def clean_dir(directory, time):
                 last_access_time = os.path.getatime(file_path)
                 
                 # Check if the file hasn't been accessed in one year
-                if last_access_time < one_year_ago and not "/Users/ryancarney/Documents/FileOrganizer" in file_path:
+                if last_access_time < one_year_ago:
                     old_files.append(file_path)
             except FileNotFoundError:
                 print(f"File not found: {file_path}")
