@@ -24,16 +24,17 @@ def clean_dir(directory):
             file_path = os.path.join(root, file)
             
             try:
-                # Get the last access time of the file
-                last_access_time = os.path.getatime(file_path)
+                # # Get the last access time of the file
+                # last_access_time = os.path.getatime(file_path)
                 
-                # Check if the file hasn't been accessed in one year
-                if last_access_time < one_year_ago:
-                    old_files.append(file_path)
+                # # Check if the file hasn't been accessed in one year
+                # if last_access_time < one_year_ago:
+                old_files.append(file_path)
             except FileNotFoundError:
                 print(f"File not found: {file_path}")
 
     # Print the list of old file paths
+    print(old_files)
     return old_files
 
 
